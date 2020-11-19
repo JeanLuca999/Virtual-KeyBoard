@@ -1,0 +1,38 @@
+#keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 90vw;
+    max-width: 350px;
+
+    margin: 0 auto;
+    margin-top: 70vh;
+
+    transform: scale(1.3,1.3);
+}
+
+#keyboard-text {
+    display: inline-block;
+    height: 20px;
+    width: 100%;
+}
+
+.tecla {
+    display: inline-block;
+    font-size: 16px;
+    flex-grow: 2;
+    min-width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 30px;
+    text-transform: uppercase;
+}
+
+@media(max-width:600px) {
+    #keyboard {
+        transform: scale(1,1);
+        margin-top: 70vh;
+    }
+}
