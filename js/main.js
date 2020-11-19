@@ -3,26 +3,25 @@ const $quadroTexto = document.getElementById('quadro-texto')
 let shiftOn = false
 let capsOn = false
 
+
+window.addEventListener('load', () => {
+    gerarTeclasDeEscrita()
+})
+
 const teclas = [
     'q','w','e','r','t','y','u','i','o','p',
     'a','s','d','f','g','h','j','k','l',
     'z','shift','x','c','v','b','n','m','backspace',
     '?123','space','.','caps','enter'
 ]
-
 const teclasEspeciais = [
     '1','2','3','4','5','6','7','8','9','0','-','+',
     '=','´','[',']','@','#','$','%','&','*','(',')',,'!','?','.',
     ',',,':',';','ABC','?','/','\\','|',"'",'"',`&lt;`,'&gt;'
 ]
 
-window.addEventListener('load', () => {
-    gerarTeclasDeEscrita()
-})
-
 
 const gerarTecla = (tecla) => `<div id="${tecla}" class="tecla" onclick="digitar(this)">${tecla}</div>`
-
 
 const gerarTeclasDeEscrita = () =>{
     teclas.forEach(tecla => {
