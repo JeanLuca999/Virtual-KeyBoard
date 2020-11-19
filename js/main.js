@@ -1,4 +1,5 @@
 const $keyBoard = document.getElementById('keyboard')
+const $quadroTexto = document.getElementById('quadro-texto')
 let shiftOn = false
 let capsOn = false
 
@@ -12,7 +13,7 @@ const teclas = [
 const teclasEspeciais = [
     '1','2','3','4','5','6','7','8','9','0','-','+',
     '=','´','[',']','@','#','$','%','&','*','(',')',,'!','?','.',
-    ',',,':','?','ABC','/','\\','|',"'",'"',
+    ',',,':',';','ABC','?','/','\\','|',"'",'"',`&lt;`,'&gt;'
 ]
 
 window.addEventListener('load', () => {
@@ -64,6 +65,10 @@ const digitar = (that) => {
         case 'ABC':
             document.querySelectorAll('.tecla').forEach(v => $keyBoard.removeChild(v))
             gerarTeclasDeEscrita()
+            return
+        case 'ENTER':
+            $quadroTexto.innerHTML = $quadroTexto.innerHTML + `<p>${$textArea.value}</p>`
+            $textArea.innerHTML = ''
             return
     }
 
