@@ -67,9 +67,13 @@ const digitar = (that) => {
             gerarTeclasDeEscrita()
             return
         case 'ENTER':
-            $quadroTexto.innerHTML = $quadroTexto.innerHTML + `<p>${$textArea.value}</p>`
-            $textArea.innerHTML = ''
-            return
+            if($textArea.value == ''){
+                return
+            } else {
+                $quadroTexto.innerHTML = $quadroTexto.innerHTML + `<p>${$textArea.value}</p>`
+                $textArea.innerHTML = ''
+                return
+            }
     }
 
     if(shiftOn){
