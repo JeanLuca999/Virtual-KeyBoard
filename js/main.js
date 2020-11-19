@@ -6,7 +6,13 @@ const teclas = [
     'q','w','e','r','t','y','u','i','o','p',
     'a','s','d','f','g','h','j','k','l',
     'z','shift','x','c','v','b','n','m','backspace',
-    '?123','space','.','caps'
+    '?123','space','.','caps','enter'
+]
+
+const teclasEspeciais = [
+    '1','2','3','4','5','6','7','8','9','0','-','+',
+    '=','´','[',']','@','#','$','%','&','*','(',')',,'!','?','.',
+    ',',,':','?','ABC','/','\\','|',"'",'"',
 ]
 
 window.addEventListener('load', () => {
@@ -19,6 +25,12 @@ const gerarTecla = (tecla) => `<div id="${tecla}" class="tecla" onclick="digitar
 
 const gerarTeclasDeEscrita = () =>{
     teclas.forEach(tecla => {
+        $keyBoard.innerHTML += gerarTecla(tecla)
+    })
+}
+
+const gerarTeclasEspeciais = () => {
+    teclasEspeciais.forEach(tecla => {
         $keyBoard.innerHTML += gerarTecla(tecla)
     })
 }
@@ -44,6 +56,14 @@ const digitar = (that) => {
             } else {
                 capsOn = true
             }
+            return
+        case '?123':
+            document.querySelectorAll('.tecla').forEach(v => $keyBoard.removeChild(v))
+            gerarTeclasEspeciais()
+            return
+        case 'ABC':
+            document.querySelectorAll('.tecla').forEach(v => $keyBoard.removeChild(v))
+            gerarTeclasDeEscrita()
             return
     }
 
