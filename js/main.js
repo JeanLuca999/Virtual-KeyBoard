@@ -1,11 +1,12 @@
 const $keyBoard = document.getElementById('keyboard')
 let shiftOn = false
+let capsOn = false
 
 const teclas = [
     'q','w','e','r','t','y','u','i','o','p',
     'a','s','d','f','g','h','j','k','l',
     'z','shift','x','c','v','b','n','m','backspace',
-    '?123','space','.'
+    '?123','space','.','caps'
 ]
 
 window.addEventListener('load', () => {
@@ -13,7 +14,7 @@ window.addEventListener('load', () => {
 })
 
 
-const gerarTecla = (tecla) => `<div class="tecla" onclick="digitar(this)">${tecla}</div>`
+const gerarTecla = (tecla) => `<div id="${tecla}" class="tecla" onclick="digitar(this)">${tecla}</div>`
 
 
 const gerarTeclasDeEscrita = () =>{
@@ -37,11 +38,22 @@ const digitar = (that) => {
         case 'SHIFT':
             shiftOn = true
             return
+        case 'CAPS':
+            if(capsOn == true) {
+                capsOn = false
+            } else {
+                capsOn = true
+            }
+            return
     }
 
     if(shiftOn){
         $textArea.innerHTML = $textArea.value + that.innerText.toUpperCase()
         shiftOn = false
+        return
+    }
+    if(capsOn) {
+        $textArea.innerHTML = $textArea.value + that.innerText.toUpperCase()
         return
     }
     $textArea.innerHTML += that.innerText.toLowerCase()
